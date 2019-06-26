@@ -46,6 +46,20 @@ scripts.buildUI()
   .catch(e => { console.error(e); process.exit(1) })
 ```
 
+## Dev server
+
+- with local actions
+
+```bash
+cna-scripts dev
+```
+
+- with remote actions
+
+```bash
+REMOTE_ACTIONS=true cna-scripts dev
+```
+
 ## Contributing
 
 Contributions are welcomed! Read the [Contributing Guide](./.github/CONTRIBUTING.md) for more information.
