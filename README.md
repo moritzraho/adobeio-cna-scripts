@@ -46,15 +46,21 @@ scripts.buildUI()
   .catch(e => { console.error(e); process.exit(1) })
 ```
 
-## Dev server
+## Dev
 
-- with local actions
+- run a single action locally
+
+```bash
+cna-scripts run path/to/myaction.js param1=value1 param2='{"jsonvalue": "value2"}'
+```
+
+- start dev server with local actions
 
 ```bash
 cna-scripts dev
 ```
 
-- with remote actions
+- start dev server with remote actions
 
 ```bash
 REMOTE_ACTIONS=true cna-scripts dev

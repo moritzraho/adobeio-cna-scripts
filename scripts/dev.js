@@ -20,6 +20,8 @@ const execa = require('execa')
 
 const Bundler = require('parcel-bundler')
 
+const NODE_ACTION_RUNNER = path.join(__dirname, 'run.js')
+
 class ActionServer extends CNAScript {
   async run (args) {
     const taskName = `Local Dev Server`
@@ -69,7 +71,7 @@ class ActionServer extends CNAScript {
 
         try {
           // output is clean on stdout
-          let result = (await execa(path.join(__dirname, 'action.runner.js'), [action.function].concat(args))).stdout
+          let result = (await execa(NODE_ACTION_RUNNER, [action.function].concat(args))).stdout
           try {
             result = JSON.parse(result)
           } catch (e) {
