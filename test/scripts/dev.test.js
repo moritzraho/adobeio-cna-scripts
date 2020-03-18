@@ -224,6 +224,13 @@ const getExpectedActionVSCodeDebugConfig = actionName =>
     request: 'launch',
     name: 'Action:' + actionName,
     runtimeExecutable: r('/node_modules/.bin/wskdebug'),
+    runtimeArgs: [
+      actionName,
+      expect.stringContaining(actionName.split('/')[1]),
+      '-v',
+      '--image',
+      'openwhisk/action-nodejs-v10:latest'
+    ],
     env: { WSK_CONFIG_FILE: r('/.wskdebug.props.tmp') },
     localRoot: r('/'),
     remoteRoot: '/code'

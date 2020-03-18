@@ -229,7 +229,9 @@ class ActionServer extends BaseScript {
           config.runtimeArgs = [
             `${packageName}/${an}`,
             path.join(actionPath, zipMain),
-            '-v'
+            '-v',
+            '--image',
+            'openwhisk/action-nodejs-v10:latest'
           ]
         } else {
           // we assume its a file at this point
@@ -237,7 +239,9 @@ class ActionServer extends BaseScript {
           config.runtimeArgs = [
             `${packageName}/${an}`,
             actionPath,
-            '-v'
+            '-v',
+            '--image',
+            'openwhisk/action-nodejs-v10:latest'
           ]
         }
         return config
